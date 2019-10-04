@@ -1,0 +1,23 @@
+<!--
+
+    unpkg is a fast, global content delivery network for everything on npm. 
+    Use it to quickly and easily load any file from any package using a URL like:
+                       unpkg.com/:package@:version/:file
+    Example:
+                https://unpkg.com/browse/babel-standalone@7.0.0-beta.3/ 
+
+    If you omit the file path (i.e. use a “bare” URL), unpkg will serve the file 
+    specified by the unpkg field in package.json, or fall back to main.
+
+    See also Stackoverflow:
+
+                https://stackoverflow.com/questions/48414348/adding-babel-to-html 
+-->
+<div id="output"></div>
+<!-- Load Babel -->
+<script src="https://unpkg.com/babel-standalone@7.0.0-beta.3/babel.min.js"></script>
+<!-- Your custom script here -->
+<script type="text/babel">
+    const getMessage = () => "Hello World"; 
+    document.getElementById('output').innerHTML = getMessage();
+</script>
