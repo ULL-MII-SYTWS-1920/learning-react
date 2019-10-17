@@ -12,16 +12,20 @@ let data
 class Mood extends React.Component {
     shouldComponentUpdate(nextProps) {
         const { children } = this.props
+        console.log("this.props.children = ",children)
+        console.log("nextProps.children = ",nextProps.children)
         return children !== nextProps.children
     }
     componentWillUpdate(nextProps) {
         const { children } = this.props
         const { moodItem } = this.refs
+        console.log('moodItem = ',moodItem)
         moodItem.style.backgroundColor = '#6099A0'
         console.log(`React changing a "${children}" to a "${nextProps.children}"`)
     }
     componentDidUpdate() {
-        this.refs.moodItem.style.backgroundColor = ''
+        // So that the blue color for the changed stays for a while
+        setTimeout(() => this.refs.moodItem.style.backgroundColor = '', 700)
     }
     render() {
         const { children } = this.props
