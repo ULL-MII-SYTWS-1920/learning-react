@@ -18,7 +18,7 @@ class Mood extends React.Component {
         const { children } = this.props
         const { moodItem } = this.refs
         moodItem.style.backgroundColor = '#6099A0'
-        alert(`React changing a "${children}" to a "${nextProps.children}"`)
+        console.log(`React changing a "${children}" to a "${nextProps.children}"`)
     }
     componentDidUpdate() {
         this.refs.moodItem.style.backgroundColor = ''
@@ -35,15 +35,19 @@ const ReactList = ({ data }) =>
     </ul>
 
 function updateJQuery(data) {
-    var firstTime = $('ul.jquery-list li').size() === 0;
+    //var firstTime = $('ul.jquery-list li').size() === 0;
+    var firstTime = $('ul.jquery-list li').length === 0;
+    console.log($('ul.jquery-list li').length);
+    
     if (!firstTime) {
-        alert('jQuery emptying list');
+        console.log('jQuery emptying list');
     }
     $('ul.jquery-list').empty();
     $.each(data, function() {
+        console.log(`Traversing ${data} this = ${this}`)
         $('<li>').addClass(this).text(this).appendTo('ul.jquery-list');
         if (!firstTime) {
-            alert(`jQuery inserting ${this}`);
+            console.log(`jQuery inserting ${this}`);
         }
     });
 }
